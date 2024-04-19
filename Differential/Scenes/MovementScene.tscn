@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cerlyi5erwi67"]
 
-[ext_resource type="Script" path="res://Scenes/MovementScene.gd" id="1_j47sb"]
+[ext_resource type="Script" path="res://Scripts/MovementScene.gd" id="1_j47sb"]
 [ext_resource type="Texture2D" uid="uid://dsojwr18x7cxn" path="res://TileMap/Solaria Demo Tiles.png" id="2_beymi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5k0o1"]
@@ -13,29 +13,18 @@ texture = ExtResource("2_beymi")
 6:1/0 = 0
 6:0/0 = 0
 3:6/0 = 0
-3:6/0/terrain = 0
 4:6/0 = 0
 4:7/0 = 0
-4:7/0/terrain = 0
 3:7/0 = 0
-3:7/0/terrain = 0
 3:8/0 = 0
-3:8/0/terrain = 1
 4:8/0 = 0
-4:8/0/terrain = 1
 5:6/0 = 0
-5:6/0/terrain = 1
 5:7/0 = 0
-5:7/0/terrain = 1
 5:8/0 = 0
-5:8/0/terrain = 1
 6:6/0 = 0
-6:6/0/terrain = 1
 6:7/0 = 0
-6:7/0/terrain = 1
 0:6/size_in_atlas = Vector2i(3, 3)
 0:6/0 = 0
-0:6/0/terrain = 0
 7:0/size_in_atlas = Vector2i(3, 3)
 7:0/0 = 0
 5:3/0 = 0
@@ -110,6 +99,26 @@ texture = ExtResource("2_beymi")
 1:5/0/terrains_peering_bit/bottom_right_corner = 0
 1:5/0/terrains_peering_bit/bottom_side = 0
 1:5/0/terrains_peering_bit/bottom_left_corner = 0
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrains_peering_bit/bottom_right_corner = 0
+4:3/0 = 0
+4:3/0/terrain_set = 0
+4:3/0/terrains_peering_bit/bottom_left_corner = 0
+4:4/0 = 0
+4:4/0/terrain_set = 0
+4:4/0/terrains_peering_bit/top_left_corner = 0
+3:4/0 = 0
+3:4/0/terrain_set = 0
+3:4/0/terrains_peering_bit/top_right_corner = 0
+3:5/0 = 0
+3:5/0/terrain_set = 0
+3:5/0/terrains_peering_bit/bottom_right_corner = 0
+3:5/0/terrains_peering_bit/top_left_corner = 0
+4:5/0 = 0
+4:5/0/terrain_set = 0
+4:5/0/terrains_peering_bit/bottom_left_corner = 0
+4:5/0/terrains_peering_bit/top_right_corner = 0
 
 [sub_resource type="TileSet" id="TileSet_hibqd"]
 terrain_set_0/mode = 0

@@ -20,9 +20,7 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 	#attempting to make a HTTPRequest function
 	if response_code == 200:
 		print("Request was successful")
-		print(body.get_string_from_utf8())
 		var json = JSON.parse_string(body.get_string_from_utf8())
-		
-		
+		print(str(json['diffExpr1']) + ("+") + str(json['diffExpr2']))
 	else:
 		print("request failed")
