@@ -1,4 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpwyohlbufkrh"]
+[gd_scene load_steps=5 format=3 uid="uid://bpwyohlbufkrh"]
+
+[ext_resource type="Theme" uid="uid://bc5iodhr0fifn" path="res://Themes/ButtonMenuTheme.tres" id="1_ymp6g"]
+[ext_resource type="FontFile" uid="uid://blnxsghextk2p" path="res://Fonts/toxigenesis bd.otf" id="2_1w8np"]
+[ext_resource type="Script" path="res://Scripts/playButton.gd" id="3_dkyg7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_leiik"]
 bg_color = Color(0.164706, 0.0901961, 0.231373, 1)
@@ -31,11 +35,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 100
+theme_override_constants/margin_left = 600
 theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_right = 600
 theme_override_constants/margin_bottom = 100
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ymp6g")
+theme_override_fonts/font = ExtResource("2_1w8np")
+theme_override_font_sizes/font_size = 151
+text = "PLAY"
+script = ExtResource("3_dkyg7")
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ymp6g")
+theme_override_fonts/font = ExtResource("2_1w8np")
+theme_override_font_sizes/font_size = 111
+text = "TUTORIAL"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ymp6g")
+theme_override_fonts/font = ExtResource("2_1w8np")
+theme_override_font_sizes/font_size = 151
+text = "QUIT"
+
+[connection signal="button_up" from="CanvasLayer/Control/Panel/MarginContainer/VBoxContainer/Button" to="CanvasLayer/Control/Panel/MarginContainer/VBoxContainer/Button" method="_on_button_up"]
