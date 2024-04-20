@@ -51,5 +51,4 @@ horizontal_alignment = 1
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2(-2.27374e-13, 2.27374e-13)
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)

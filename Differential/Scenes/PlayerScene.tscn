@@ -1,6 +1,130 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnkdrexlreeko"]
+[gd_scene load_steps=19 format=3 uid="uid://cnkdrexlreeko"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScene.gd" id="1_75ukl"]
+[ext_resource type="Texture2D" uid="uid://dayh6h7c436u5" path="res://Animation/slash5/image/slash5_1_00001.png" id="2_t6mni"]
+[ext_resource type="Texture2D" uid="uid://3wp0nb0qem3l" path="res://Animation/slash5/image/slash5_1_00002.png" id="3_17y25"]
+[ext_resource type="Texture2D" uid="uid://dsjuy0jqtydqy" path="res://Animation/slash5/image/slash5_1_00003.png" id="4_bvygr"]
+[ext_resource type="Texture2D" uid="uid://dbx0by5au7fba" path="res://Animation/slash5/image/slash5_1_00004.png" id="5_vs8ib"]
+[ext_resource type="Texture2D" uid="uid://deb1ag5olsme6" path="res://Animation/slash5/image/slash5_1_00005.png" id="6_qsqna"]
+[ext_resource type="Texture2D" uid="uid://d3jvy1p6d627q" path="res://Animation/slash5/image/slash5_1_00006.png" id="7_6yboq"]
+[ext_resource type="Texture2D" uid="uid://bm7pedc6j5yl6" path="res://Animation/slash5/image/slash5_1_00007.png" id="8_qft6h"]
+[ext_resource type="Texture2D" uid="uid://dlw6dccnllyes" path="res://Animation/slash5/image/slash5_1_00008.png" id="9_4khul"]
+[ext_resource type="Texture2D" uid="uid://ctylbo6x8r2x4" path="res://Animation/slash5/image/slash5_1_00009.png" id="10_xn0o0"]
+[ext_resource type="Texture2D" uid="uid://cupbs1qkbqs0p" path="res://Animation/slash5/image/slash5_1_00010.png" id="11_iquw3"]
+[ext_resource type="Texture2D" uid="uid://c1u6f02x5ig7m" path="res://Animation/slash5/image/slash5_1_00011.png" id="12_iwxw6"]
+[ext_resource type="Texture2D" uid="uid://ceynmnvdfgnyf" path="res://Animation/slash5/image/slash5_1_00012.png" id="13_y2at1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdkrx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t6mni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_17y25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bvygr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vs8ib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qsqna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6yboq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qft6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4khul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xn0o0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iquw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_iwxw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y2at1")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"slash",
+"speed": 60.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ww5ko"]
+radius = 34.0
+height = 176.0
+
+[sub_resource type="Animation" id="Animation_6vlko"]
+resource_name = "Slash"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00612828, 0.0130147, 0.025, 0.075, 0.125, 0.15055, 0.184081, 0.206956, 0.229347, 0.24641, 0.261075, 0.28045, 0.31145),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D/Weapon/WeaponCollision:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.00102138, 0.134822, 0.182827, 0.224703, 0.246152),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(150, -2), Vector2(178, -8), Vector2(204, -8), Vector2(190, 0), Vector2(154, -2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D/Weapon/WeaponCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.00612828, 0.28905),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_mibq5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/Weapon/WeaponCollision:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lja31"]
+_data = {
+"RESET": SubResource("Animation_mibq5"),
+"Slash": SubResource("Animation_6vlko")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_75ukl")
@@ -8,6 +132,7 @@ script = ExtResource("1_75ukl")
 [node name="Border" type="Polygon2D" parent="."]
 z_index = 20
 position = Vector2(1, 1)
+rotation = 3.14159
 scale = Vector2(1.235, 1.25)
 color = Color(0.274969, 0.42407, 0.349335, 1)
 polygon = PackedVector2Array(-44, -1, 6, -23, 21, -1, 6, 23)
@@ -15,11 +140,36 @@ polygon = PackedVector2Array(-44, -1, 6, -23, 21, -1, 6, 23)
 [node name="Actual" type="Polygon2D" parent="."]
 z_index = 21
 position = Vector2(1, 1)
-scale = Vector2(1, 1)
+rotation = 3.14159
 color = Color(0.584314, 0.772549, 0.67451, 1)
 polygon = PackedVector2Array(-43, -1, 6, -23, 21, -1, 6, 23)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(1.3, 1.1)
+rotation = 3.14159
 scale = Vector2(0.991071, 1.00272)
 polygon = PackedVector2Array(-43.6901, -1.09702, 6, -23, 20.8865, -1.09702, 6, 23)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_cdkrx")
+animation = &"slash"
+frame = 12
+offset = Vector2(150, 0)
+
+[node name="Weapon" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="WeaponCollision" type="CollisionShape2D" parent="AnimatedSprite2D/Weapon"]
+shape = SubResource("CapsuleShape2D_ww5ko")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lja31")
+}
+speed_scale = 2.0
+movie_quit_on_finish = true

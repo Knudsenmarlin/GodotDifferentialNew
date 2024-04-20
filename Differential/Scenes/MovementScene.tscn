@@ -21,8 +21,6 @@ scale = Vector2(1.75, 1.75)
 color = Color(0.0763308, 0.0320476, 0.116287, 1)
 polygon = PackedVector2Array(-896, -512, 896, -512, 896, 512, -896, 512)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uf2y1")
 
