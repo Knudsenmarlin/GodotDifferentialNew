@@ -9,7 +9,7 @@ func _ready() -> void:
 func _expression_translate():
 	var rng = RandomNumberGenerator.new()
 	var expression1 = ""
-	var exprList = ["k", "x^n", "x^-1", "ln(x)", "e^x", "e^k*x", "k*x", "k^x", "cos(x)", "sin(x)", "-cos(x)"]
+	var exprList = ["k", "x^n", "x^-1", "ln(x)", "e^x", "e^k*x", "k*x", "k^x", "cos(x)", "sin(x)", "-cos(x)", "-sin(x)"]
 	expression1 = exprList[rng.randi_range(0, exprList.size()-1)]
 	match(expression1):
 		"k":
@@ -42,7 +42,7 @@ func _expression_generator():
 func _expression_hard_translate():
 	var rng = RandomNumberGenerator.new()
 	var expression1 = ""
-	var exprList = ["x^n", "x^-1", "ln(x)", "e^x", "e^k*x", "k*x", "k^x", "cos(x)", "sin(x)", "-cos(x)"]
+	var exprList = ["x^n", "x^-1", "ln(x)", "e^x", "e^k*x", "k*x", "k^x", "cos(x)", "sin(x)", "-cos(x)", "-sin(x)"]
 	expression1 = exprList[rng.randi_range(0, exprList.size()-1)]
 	match(expression1):
 		"k":
