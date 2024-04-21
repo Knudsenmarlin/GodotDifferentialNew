@@ -1,7 +1,16 @@
 extends Node
 
+var exprType1 = ""
+var exprType2 = ""
+var expr1 = ""
+var expr2 = ""
+var diffExpr1 = ""
+var diffExpr2 = ""
+
+
 var dictExpr = {}
 var dictExprHard = {}
+var dictExprType = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -11,6 +20,7 @@ func _expression_translate():
 	var expression1 = ""
 	var exprList = ["k", "x^n", "x^-1", "ln(x)", "e^x", "e^k*x", "k*x", "k^x", "cos(x)", "sin(x)", "-cos(x)", "-sin(x)"]
 	expression1 = exprList[rng.randi_range(0, exprList.size()-1)]
+	var exprType = expression1
 	match(expression1):
 		"k":
 			expression1 = str(rng.randi_range(1, 9))
@@ -21,22 +31,30 @@ func _expression_translate():
 		"k*x":
 			expression1 = str(rng.randi_range(1, 9)) + "*x"
 		"k^x":
-			expression1 = str(rng.randi_range(1, 9)) + "**x"
+			expression1 = str(rng.randi_range(1, 9)) + "^x"
 		"e^x":
 			expression1 = "exp(x)"
 		_:
 			pass
-	return str(expression1)
+	var finalData = [str(expression1), exprType]
+	return finalData
 
 func _expression_generator():
-	var rng = RandomNumberGenerator.new()
-	var expression1 = _expression_translate()
-	var expression2 = _expression_translate()
+	var data1 = _expression_translate()
+	expr1 = data1[0]
+	exprType1 = data1[1]
+	var data2 = _expression_translate()
+	expr2 = data2[0]
+	exprType2 = data2[1]
 	dictExpr = {
-		'expr1': str(expression1),
-		'expr2': str(expression2)
+		'expr1': str(expr1),
+		'expr2': str(expr2)
 	}
-	return dictExpr
+	dictExprType = {
+		'exprType1' = str(exprType1),
+		'exprType2' = str(exprType2)
+	}
+	return [dictExpr, dictExprType]
 
 
 func _expression_hard_translate():
@@ -54,7 +72,7 @@ func _expression_hard_translate():
 		"k*x":
 			expression1 = str(rng.randi_range(1, 9)) + "*x"
 		"k^x":
-			expression1 = str(rng.randi_range(1, 9)) + "**x"
+			expression1 = str(rng.randi_range(1, 9)) + "^x"
 		"e^x":
 			expression1 = "exp(x)"
 		_:

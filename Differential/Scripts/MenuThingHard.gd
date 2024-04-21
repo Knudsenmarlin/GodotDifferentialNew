@@ -7,13 +7,11 @@ func _ready():
 	name1.text = Global.name1
 	expr.text = Global.function1
 
-
-
-
-
 func _on_mouse_entered():
-	$BG.color = Color.hex(0x69809e64)
-
+	var tween = create_tween()
+	tween.tween_property($BG, "color", Color.hex(0x69809e64), 0.3).set_trans(Tween.TRANS_SINE)
+	
 
 func _on_mouse_exited():
-	$BG.color = Color.hex(0x69809e00)
+	var tween = create_tween()
+	tween.tween_property($BG, "color", Color.hex(0x69809e00), 0.3).set_trans(Tween.TRANS_SINE)

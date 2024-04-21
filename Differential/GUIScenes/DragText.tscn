@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://u1nyy8e354r3"]
+
+[ext_resource type="Script" path="res://Scripts/DragText.gd" id="1_oq38q"]
+
+[node name="DragText" type="Label"]
+top_level = true
+z_as_relative = false
+offset_right = 1.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_oq38q")

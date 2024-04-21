@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8b6klrld4g42"]
 
-[ext_resource type="Script" path="res://Scripts/MenuThingHard.gd" id="1_35727"]
+[ext_resource type="Script" path="res://GUIScenes/MenuThingHard.gd" id="1_xyj84"]
 
 [node name="MenuThingHard" type="MarginContainer"]
 anchors_preset = 15
@@ -8,7 +8,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_35727")
+script = ExtResource("1_xyj84")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 2
