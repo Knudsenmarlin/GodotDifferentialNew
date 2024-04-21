@@ -4,8 +4,8 @@ var host_url = "http://127.0.0.1:5000"
 @onready var http_request = $HTTPRequest
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var data = Calculus._expression_generator()
-	_http_request(data, "/diff")
+	var data = Calculus._expression_generator_hard()
+	_http_request(data, "/diffHard")
 	
 
 func _http_request(data, request_destination): 

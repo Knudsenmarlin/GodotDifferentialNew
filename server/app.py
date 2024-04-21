@@ -10,7 +10,7 @@ def home():
     return 'Hello World, from Flask!'
 
 @app.route('/diff', methods=['POST'])
-def processjson():
+def processDiff():
     data = request.get_json()
     expr1 = data['expr1']
     expr2 = data['expr2']
@@ -33,6 +33,16 @@ def processjson():
         print('no, didnt have')
    
     return jsonify({'diffExpr1': diffExpr1, 'diffExpr2': diffExpr2})
+
+@app.route('/diffHard', methods=['POST'])
+def processDiffHard():
+    data = request.get_json()
+    exprHard = data['exprHard']
+    x = symbols("x")
+    diffExprHard = str(diff(exprHard, x))
+    print("success")
+    return jsonify({'diffExprHard': diffExprHard})
+
 
 if __name__ == '__main__':
     app.run()
