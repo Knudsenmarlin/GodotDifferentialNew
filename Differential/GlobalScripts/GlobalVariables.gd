@@ -1,5 +1,9 @@
 extends Node
 
+var input1 = ""
+var input2 = ""
+var hasDroppedExpr1 = false
+var hasDroppedExpr2 = false
 var expr1 = ""
 var expr2 = ""
 var name1 = ""

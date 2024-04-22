@@ -12,7 +12,11 @@ func _process(delta):
 	pass
 
 func _can_drop_data(at_position, data):
-	return true
+	if Global.hasDroppedExpr1 == true:
+		return false
+	else:
+		return true
+	
 
 func _drop_data(at_position, data):
 	var exprType1 = str(Calculus.exprType1)
@@ -20,6 +24,7 @@ func _drop_data(at_position, data):
 		print("yippee")
 		var exprEdit1 = exprEdit1Scene.instantiate()
 		inputPlace.add_child(exprEdit1)
+		Global.hasDroppedExpr1 = true
 	else:
 		print("fml")
 	

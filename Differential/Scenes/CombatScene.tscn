@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf66utwkggurs"]
+[gd_scene load_steps=9 format=3 uid="uid://bf66utwkggurs"]
 
 [ext_resource type="Script" path="res://Scripts/CombatScene.gd" id="1_x1746"]
 [ext_resource type="Script" path="res://Scenes/expr1Drag.gd" id="2_0jcif"]
 [ext_resource type="Theme" uid="uid://bnhu0ase4c34b" path="res://Themes/backgroundTextFunction.tres" id="2_2i2g8"]
+[ext_resource type="Theme" uid="uid://bc5iodhr0fifn" path="res://Themes/ButtonMenuTheme.tres" id="2_dog5k"]
 [ext_resource type="Script" path="res://Scripts/generateMenu.gd" id="3_jtuvr"]
 [ext_resource type="Script" path="res://Scenes/expr2Drag.gd" id="4_pgmd7"]
 
@@ -60,35 +61,55 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="InputPlace" type="VBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Input"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Input"]
+layout_mode = 2
+
+[node name="InputPlace" type="VBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Input/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Input/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Check" type="Button" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Input/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_dog5k")
+theme_override_font_sizes/font_size = 100
+text = "Check!"
 
 [node name="Functions" type="MarginContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions"]
+[node name="Functions" type="VBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="beforeDiffFunction" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer"]
+[node name="beforeDiffFunction" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "f(x) ="
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer"]
+[node name="actualfunction" type="HBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 100
+theme_override_constants/separation = 20
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/actualfunction"]
 layout_mode = 2
 script = ExtResource("2_0jcif")
 
-[node name="expr1" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="expr1" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/actualfunction/MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -97,7 +118,7 @@ theme = ExtResource("2_2i2g8")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_wxqib")
 
-[node name="+" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer/HBoxContainer"]
+[node name="+" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/actualfunction"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
@@ -105,11 +126,11 @@ theme_override_font_sizes/font_size = 100
 text = "+
 "
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/actualfunction"]
 layout_mode = 2
 script = ExtResource("4_pgmd7")
 
-[node name="expr2" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer/HBoxContainer/MarginContainer2"]
+[node name="expr2" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/actualfunction/MarginContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -118,39 +139,73 @@ size_flags_vertical = 0
 theme = ExtResource("2_2i2g8")
 theme_override_font_sizes/font_size = 100
 
-[node name="beforeDiffFunction2" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer"]
+[node name="clarification" type="HBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions"]
+layout_mode = 2
+
+[node name="g(x)" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/clarification"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "g(x)"
+
+[node name="h(x)" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/clarification"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "h(x)"
+
+[node name="beforeDiffFunction2" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions"]
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 50
 text = "f'(x) ="
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer"]
+[node name="outputFunction" type="HBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 100
+theme_override_constants/separation = 20
 
-[node name="expr1Answer" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer/HBoxContainer2"]
+[node name="expr1Answer" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/outputFunction"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("2_2i2g8")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 50
 
-[node name="+" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer/HBoxContainer2"]
+[node name="+" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/outputFunction"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 50
 text = "+
 "
 
-[node name="expr2Answer" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/VBoxContainer/HBoxContainer2"]
+[node name="expr2Answer" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/outputFunction"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_horizontal = 8
+size_flags_vertical = 0
 theme = ExtResource("2_2i2g8")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 50
+
+[node name="clarification2" type="HBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions"]
+layout_mode = 2
+
+[node name="g\'(x)" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/clarification2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "g'(x)"
+
+[node name="h\'(x)" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Functions/Functions/clarification2"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "h'(x)"
 
 [node name="Menu" type="MarginContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -189,3 +244,4 @@ theme_override_constants/separation = 10
 script = ExtResource("3_jtuvr")
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="button_up" from="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Input/VBoxContainer/MarginContainer/Check" to="." method="_on_check_button_up"]

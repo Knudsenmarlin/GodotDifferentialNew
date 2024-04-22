@@ -2,22 +2,29 @@ extends Node2D
 
 var host_url = "http://127.0.0.1:5000"
 @onready var http_request = $HTTPRequest
+
+func _process(delta: float) -> void:
+	get_node("%expr1Answer").text = Global.input1
+	get_node("%expr2Answer").text = Global.input2
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var finalData = Calculus._expression_generator()
 	var data = finalData[0]
 	var exprText1 = finalData[0]['expr1']
 	var exprType1 = finalData[1]['exprType1']
-	var exprText1Label = get_node("%expr1")
-	exprText1Label.text = exprText1
-	
 	var exprText2 = finalData[0]['expr2']
 	var exprType2 = finalData[1]['exprType2']
-	var exprText2Label = get_node("%expr2")
-	exprText2Label.text = exprText2
 	
 	_http_request(data, "/diff")
-	
+	if "exp" in exprText1:
+		exprText1 = replace_exp_with_e_power_x(exprText1)
+	if "exp" in exprText2:
+		exprText2 = replace_exp_with_e_power_x(exprText2)
+	var exprText1Label = get_node("%expr1")
+	var exprText2Label = get_node("%expr2")
+	exprText1Label.text = exprText1
+	exprText2Label.text = exprText2
 
 func _http_request(data, request_destination): 
 	var json = JSON.stringify(data)
@@ -33,8 +40,30 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 		print("Request was successful")
 		var json = JSON.parse_string(body.get_string_from_utf8())
 		print(json)
-		Calculus.diffExpr1 = json['diffExpr1']
-		Calculus.diffExpr2 = json['diffExpr2']
+		if json.has("diffExpr1"):
+			Calculus.diffExpr1 = json['diffExpr1']
+			Calculus.diffExpr2 = json['diffExpr2']
+		if json.has("answer"):
+			print(json["answer"])
 		
 	else:
 		print("request failed")
+
+func replace_exp_with_e_power_x(input_string: String) -> String:
+	var pattern = "exp\\((.*?)\\)"
+	var regex = RegEx.new()
+	regex.compile(pattern)
+	
+	var replaced_string = regex.sub(input_string, "e^($1)")
+	
+	return replaced_string
+
+
+func _on_check_button_up() -> void:
+	var sendData = {
+		'diffInput1' = Global.input1,
+		'diffInput2' = Global.input2,
+		'diffExpr1' = Calculus.diffExpr1,
+		'diffExpr2' = Calculus.diffExpr2
+	}
+	_http_request(sendData, "/diffCheck")

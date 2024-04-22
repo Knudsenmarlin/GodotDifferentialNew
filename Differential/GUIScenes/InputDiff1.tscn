@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://t3oy1sitdvmn"]
+[gd_scene load_steps=3 format=3 uid="uid://t3oy1sitdvmn"]
+
+[ext_resource type="Script" path="res://Scripts/input1.gd" id="1_i1v3c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqx4l"]
+bg_color = Color(0.266667, 0.247059, 0.482353, 1)
 
 [node name="InputDiff1" type="MarginContainer"]
 anchors_preset = 15
@@ -14,9 +19,11 @@ theme_override_constants/separation = 20
 [node name="function" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "f'(x) ="
+text = "g'(x) ="
 
-[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="input1" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/background_color = Color(0.266667, 0.247059, 0.482353, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqx4l")
+placeholder_text = "Type the correct answer"
+script = ExtResource("1_i1v3c")
