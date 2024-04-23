@@ -1,17 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf66utwkggurs"]
+[gd_scene load_steps=11 format=3 uid="uid://bf66utwkggurs"]
 
 [ext_resource type="Script" path="res://Scripts/CombatScene.gd" id="1_x1746"]
-[ext_resource type="Script" path="res://Scenes/expr1Drag.gd" id="2_0jcif"]
+[ext_resource type="Script" path="res://Scripts/expr1Drag.gd" id="2_0jcif"]
 [ext_resource type="Theme" uid="uid://bnhu0ase4c34b" path="res://Themes/backgroundTextFunction.tres" id="2_2i2g8"]
 [ext_resource type="Theme" uid="uid://bc5iodhr0fifn" path="res://Themes/ButtonMenuTheme.tres" id="2_dog5k"]
 [ext_resource type="Script" path="res://Scripts/generateMenu.gd" id="3_jtuvr"]
-[ext_resource type="Script" path="res://Scenes/expr2Drag.gd" id="4_pgmd7"]
+[ext_resource type="Script" path="res://Scripts/expr2Drag.gd" id="4_pgmd7"]
+[ext_resource type="PackedScene" uid="uid://c6sehmksbm6y" path="res://GUIScenes/Seperator.tscn" id="6_d43ou"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myael"]
 bg_color = Color(0.164706, 0.0901961, 0.231373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxqib"]
 bg_color = Color(0.266667, 0.247059, 0.482353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jwei"]
+bg_color = Color(0.247059, 0.172549, 0.372549, 1)
 
 [node name="CombatScene" type="Node2D"]
 script = ExtResource("1_x1746")
@@ -68,6 +72,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 30
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Input/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
@@ -231,6 +236,39 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "Differential overview"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Menu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="f(x)" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Menu/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "f(x)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seperator" type="Panel" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Menu/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jwei")
+
+[node name="f\'(x)" type="Label" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Menu/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "f'(x)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seperator" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Menu/ScrollContainer/VBoxContainer" instance=ExtResource("6_d43ou")]
+layout_mode = 2
+
 [node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Menu/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -242,6 +280,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 script = ExtResource("3_jtuvr")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 30
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
 [connection signal="button_up" from="CanvasLayer/Control/Panel/MarginContainer/HBoxContainer/Input/VBoxContainer/MarginContainer/Check" to="." method="_on_check_button_up"]

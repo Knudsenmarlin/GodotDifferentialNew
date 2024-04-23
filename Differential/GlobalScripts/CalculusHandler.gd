@@ -27,7 +27,7 @@ func _expression_translate():
 		"x^n":
 			expression1 = "x^" + str(rng.randi_range(2, 9))
 		"e^k*x":
-			expression1 = "exp(" + str(rng.randi_range(1, 9)) + "*x)"
+			expression1 = "exp(" + str(rng.randi_range(2, 9)) + "*x)"
 		"k*x":
 			expression1 = str(rng.randi_range(1, 9)) + "*x"
 		"k^x":

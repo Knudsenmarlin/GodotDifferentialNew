@@ -35,6 +35,8 @@ def diffCheck():
     data = request.get_json()
     diffInput1 = data['diffInput1']
     diffInput2 = data['diffInput2']
+    diffExpr1 = data['diffExpr1']
+    diffExpr2 = data['diffExpr2']
     x = symbols('x')
     if diffInput1 != "" and diffInput2 != "" and diffExpr1 != "" and diffExpr2 != "":
         diffInput1 = sympify(replace_e_power_x_with_exp(diffInput1))

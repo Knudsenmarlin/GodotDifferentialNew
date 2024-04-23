@@ -1,6 +1,7 @@
 extends Button
 
 var movement = preload("res://Scenes/MovementScene.tscn")
+var gameManager = preload("res://Scenes/GameManager.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,4 +13,4 @@ func _process(delta):
 
 
 func _on_button_up():
-	get_tree().change_scene_to_file("res://Scenes/MovementScene.tscn")
+	SceneTransition.change_scene("res://Scenes/GameManager.tscn")

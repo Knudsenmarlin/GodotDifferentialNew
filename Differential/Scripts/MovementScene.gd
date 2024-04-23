@@ -6,9 +6,15 @@ extends Node2D
 func _ready() -> void:
 	var playerInstance = player.instantiate()
 	add_child(playerInstance)
-	print(Calculus._expression_generator())
 	
 func _on_timer_timeout():
 	var enemyD = enemyDiff.instantiate()
-	enemyD.position = Vector2(0, -500)
-	add_child(enemyD)
+	var rng = RandomNumberGenerator.new()
+	var spawn = "EnemyHandler/spawnpoint" + str(rng.randi_range(1, get_tree().get_nodes_in_group("spawn").size()))
+	var area = get_node(spawn)
+	var pos = area.position + Vector2(rng.randf() * area.size.x, rng.randf() * area.size.y)
+	var spawnPoint = get_node("EnemyHandler/spawn")
+	spawnPoint.position = pos
+	enemyD.position = spawnPoint.position
+	get_node("EnemyHandler").add_child(enemyD)
+	$Timer.wait_time = Global.wait

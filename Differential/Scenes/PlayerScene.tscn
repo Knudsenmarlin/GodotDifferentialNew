@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnkdrexlreeko"]
+[gd_scene load_steps=20 format=3 uid="uid://cnkdrexlreeko"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScene.gd" id="1_75ukl"]
 [ext_resource type="Texture2D" uid="uid://dayh6h7c436u5" path="res://Animation/slash5/image/slash5_1_00001.png" id="2_t6mni"]
@@ -114,7 +114,7 @@ tracks/2/path = NodePath("AnimatedSprite2D/Weapon/WeaponCollision:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.00612828, 0.28905),
+"times": PackedFloat32Array(0.00612828, 0.342723),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -126,7 +126,12 @@ _data = {
 "Slash": SubResource("Animation_6vlko")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ac08l"]
+polygon = PackedVector2Array(-6, -27, -25, 2, -7, 29, 55, 2)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 33
+collision_mask = 33
 script = ExtResource("1_75ukl")
 
 [node name="Border" type="Polygon2D" parent="."]
@@ -137,20 +142,20 @@ scale = Vector2(1.235, 1.25)
 color = Color(0.274969, 0.42407, 0.349335, 1)
 polygon = PackedVector2Array(-44, -1, 6, -23, 21, -1, 6, 23)
 
-[node name="Actual" type="Polygon2D" parent="."]
+[node name="Actual" type="Polygon2D" parent="Border"]
 z_index = 21
-position = Vector2(1, 1)
-rotation = 3.14159
+scale = Vector2(0.809717, 0.8)
 color = Color(0.584314, 0.772549, 0.67451, 1)
 polygon = PackedVector2Array(-43, -1, 6, -23, 21, -1, 6, 23)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="PlayerCollision" type="CollisionPolygon2D" parent="."]
 position = Vector2(1.3, 1.1)
 rotation = 3.14159
 scale = Vector2(0.991071, 1.00272)
 polygon = PackedVector2Array(-43.6901, -1.09702, 6, -23, 20.8865, -1.09702, 6, 23)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="PlayerCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 
@@ -161,9 +166,12 @@ animation = &"slash"
 frame = 12
 offset = Vector2(150, 0)
 
-[node name="Weapon" type="Area2D" parent="AnimatedSprite2D"]
+[node name="Weapon" type="Area2D" parent="AnimatedSprite2D" groups=["Weapon"]]
+collision_layer = 0
+collision_mask = 48
 
 [node name="WeaponCollision" type="CollisionShape2D" parent="AnimatedSprite2D/Weapon"]
+unique_name_in_owner = true
 shape = SubResource("CapsuleShape2D_ww5ko")
 disabled = true
 
@@ -173,3 +181,8 @@ libraries = {
 }
 speed_scale = 2.0
 movie_quit_on_finish = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ac08l")
+
+[connection signal="body_entered" from="AnimatedSprite2D/Weapon" to="." method="_on_weapon_body_entered"]

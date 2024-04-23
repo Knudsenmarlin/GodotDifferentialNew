@@ -1,5 +1,7 @@
 extends Node
 
+var wait = 5
+var hp = 100 
 var input1 = ""
 var input2 = ""
 var hasDroppedExpr1 = false
@@ -29,7 +31,7 @@ var dictRule = {
 	"Quotient rule" = "(g(x)*f'(x)-f(x)*g^(x))/(g(x))^2",
 	"Product rule" = "f'(x)*g(x)+f(x)*g'(x)"
 }
-
+	
 func _generate_function(expr: String):
 	expr1 = str(expr)
 	expr2 = str(dictOfFunction[expr])
