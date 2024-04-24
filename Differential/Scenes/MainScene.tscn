@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpwyohlbufkrh"]
+[gd_scene load_steps=6 format=3 uid="uid://bpwyohlbufkrh"]
 
 [ext_resource type="Theme" uid="uid://bc5iodhr0fifn" path="res://Themes/ButtonMenuTheme.tres" id="1_ymp6g"]
 [ext_resource type="FontFile" uid="uid://blnxsghextk2p" path="res://Fonts/toxigenesis bd.otf" id="2_1w8np"]
 [ext_resource type="Script" path="res://Scripts/playButton.gd" id="3_dkyg7"]
+[ext_resource type="Script" path="res://Scripts/Button3.gd" id="4_wft2t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_leiik"]
 bg_color = Color(0.164706, 0.0901961, 0.231373, 1)
@@ -69,5 +70,7 @@ theme = ExtResource("1_ymp6g")
 theme_override_fonts/font = ExtResource("2_1w8np")
 theme_override_font_sizes/font_size = 151
 text = "QUIT"
+script = ExtResource("4_wft2t")
 
 [connection signal="button_up" from="CanvasLayer/Control/Panel/MarginContainer/VBoxContainer/Button" to="CanvasLayer/Control/Panel/MarginContainer/VBoxContainer/Button" method="_on_button_up"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/MarginContainer/VBoxContainer/Button3" to="CanvasLayer/Control/Panel/MarginContainer/VBoxContainer/Button3" method="_on_pressed"]

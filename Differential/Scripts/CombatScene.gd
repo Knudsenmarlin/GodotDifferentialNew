@@ -47,7 +47,6 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 			Calculus.diffExpr1 = json['diffExpr1']
 			Calculus.diffExpr2 = json['diffExpr2']
 		if json.has("answer"):
-			print(json["answer"])
 			answer = json["answer"]
 	else:
 		print("request failed")
@@ -87,7 +86,11 @@ func _on_check_button_up() -> void:
 			movementScene.process_mode = movementScene.PROCESS_MODE_INHERIT
 			queue_free()
 			Global.hp += 25
-		"failure":
+			Global.score += 1
+		"failed":
 			print("failed")
 			Global.hp -= 25
-			
+
+
+func _on_timer_timeout() -> void:
+	Global.hp -= 1

@@ -1,5 +1,6 @@
 extends Node
 
+var score = 0
 var wait = 5
 var hp = 100 
 var input1 = ""
@@ -20,7 +21,7 @@ var dictOfFunction = {
 	"e^x": "e^x",
 	"e^k*x": "k*e^(k*x)",
 	"k*x": "k",
-	"k^x": "ln(a)*a^x",
+	"k^x": "ln(k)*k^x",
 	"cos(x)": "-sin(x)",
 	"sin(x)": "cos(x)",
 	"-cos(x)": "sin(x)",

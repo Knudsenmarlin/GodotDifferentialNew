@@ -167,6 +167,7 @@ frame = 12
 offset = Vector2(150, 0)
 
 [node name="Weapon" type="Area2D" parent="AnimatedSprite2D" groups=["Weapon"]]
+unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 48
 

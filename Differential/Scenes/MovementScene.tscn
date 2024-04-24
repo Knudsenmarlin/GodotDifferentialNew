@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cerlyi5erwi67"]
 
 [ext_resource type="Script" path="res://Scripts/MovementScene.gd" id="1_j47sb"]
-[ext_resource type="PackedScene" uid="uid://x1qoafwp1pgf" path="res://Scenes/Obstacles.tscn" id="2_20frk"]
-[ext_resource type="PackedScene" uid="uid://bu3f7dyacb6g6" path="res://Scenes/Castle.tscn" id="2_tg8e6"]
+[ext_resource type="PackedScene" path="res://Scenes/Obstacles.tscn" id="2_20frk"]
+[ext_resource type="PackedScene" path="res://Scenes/Castle.tscn" id="2_tg8e6"]
 [ext_resource type="Texture2D" uid="uid://d1johqjpt8hmp" path="res://Light/light.png" id="3_4jqob"]
 
 [sub_resource type="Environment" id="Environment_uf2y1"]

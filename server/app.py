@@ -63,4 +63,3 @@ def replace_e_power_x_with_exp(input_string):
 
 if __name__ == '__main__':
     app.run()
-
